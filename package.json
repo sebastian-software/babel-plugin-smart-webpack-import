@@ -1,8 +1,9 @@
 {
-  "name": "Smart Webpack Import",
+  "name": "babel-plugin-smart-webpack-import",
   "version": "0.0.1",
-  "description": "",
-  "main": "lib/index.js",
+  "description": "Smart Webpack Import has the goal to improve the developer experience when working with so-called dynamic `import()` statements.",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
   "scripts": {
     "precommit": "lint-staged",
     "prepack": "preppy",
@@ -46,7 +47,14 @@
     "eslint": "^4.19.1",
     "eslint-config-readable": "^1.12.4",
     "flow-bin": "^0.72.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
     "preppy": "^4.2.2",
     "prettier": "^1.12.1"
+  },
+  "dependencies": {
+    "base-x": "^3.0.4",
+    "crypto": "^1.0.1",
+    "json5": "^1.0.1"
   }
 }
