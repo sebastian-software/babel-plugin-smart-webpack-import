@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`better-import Adds chunkname when missing: Adds chunkname when missing 1`] = `
+"
+import('./HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'HelloView-zy9ks'*/
+'./HelloView');
+"
+`;
