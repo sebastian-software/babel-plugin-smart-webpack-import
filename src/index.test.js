@@ -16,6 +16,9 @@ pluginTester({
   babelOptions,
   snapshot: true,
   tests: {
-    "Adds chunkname when missing": "import('./HelloView')"
+    "Adds chunkname when missing": "import('./HelloView')",
+    "Keeps existing comments": "import(/* keep me */ './HelloView')",
+    "Adds chunkName to existing magic comment": "import(/* webpackPreload: true */ './HelloView')",
+    "Don't overwrites manual chunkName": "import(/* webpackChunkName: 'CustomHello' */ './HelloView')",
   }
 })

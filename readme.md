@@ -20,6 +20,17 @@ Smart Webpack Import has the goal to improve the developer experience when worki
 - Respects existing chunk names.
 - Keeps other magic comments from Webpack in-tact.
 
+## Example
+
+```js
+import('./HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'HelloView-zy9ks'*/
+'./HelloView');
+```
 
 ## License
 

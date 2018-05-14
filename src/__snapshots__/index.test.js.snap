@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`better-import Adds chunkName to existing magic comment: Adds chunkName to existing magic comment 1`] = `
+"
+import(/* webpackPreload: true */ './HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackPreload:true,webpackChunkName:'HelloView-zy9ks'*/
+
+/**/
+'./HelloView');
+"
+`;
+
 exports[`better-import Adds chunkname when missing: Adds chunkname when missing 1`] = `
 "
 import('./HelloView')
@@ -8,6 +22,32 @@ import('./HelloView')
 
 import(
 /*webpackChunkName:'HelloView-zy9ks'*/
+'./HelloView');
+"
+`;
+
+exports[`better-import Don't overwrites manual chunkName: Don't overwrites manual chunkName 1`] = `
+"
+import(/* webpackChunkName: 'CustomHello' */ './HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/* webpackChunkName: 'CustomHello' */
+'./HelloView');
+"
+`;
+
+exports[`better-import Keeps existing comments: Keeps existing comments 1`] = `
+"
+import(/* keep me */ './HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'HelloView-zy9ks'*/
+
+/* keep me */
 './HelloView');
 "
 `;
