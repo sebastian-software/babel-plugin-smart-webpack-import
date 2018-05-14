@@ -38,6 +38,18 @@ import(
 "
 `;
 
+exports[`smart-webpack-import Keeps chunkName simple even for longer paths: Keeps chunkName simple even for longer paths 1`] = `
+"
+import('./views/admin/SettingsView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'SettingsView-ijYnC'*/
+'./views/admin/SettingsView');
+"
+`;
+
 exports[`smart-webpack-import Keeps existing comments: Keeps existing comments 1`] = `
 "
 import(/* keep me */ './HelloView')

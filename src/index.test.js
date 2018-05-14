@@ -17,6 +17,7 @@ pluginTester({
   snapshot: true,
   tests: {
     "Adds chunkname when missing": "import('./HelloView')",
+    "Keeps chunkName simple even for longer paths": "import('./views/admin/SettingsView')",
     "Keeps existing comments": "import(/* keep me */ './HelloView')",
     "Adds chunkName to existing magic comment": "import(/* webpackPrefetch: true */ './HelloView')",
     "Don't overwrites manual chunkName": "import(/* webpackChunkName: 'CustomHello' */ './HelloView')",

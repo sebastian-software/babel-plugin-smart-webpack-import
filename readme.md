@@ -64,6 +64,17 @@ import(
 './HelloView');
 ```
 
+### Shortens Paths
+
+```js
+import('./views/admin/SettingsView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'SettingsView-ijYnC'*/
+'./views/admin/SettingsView');
+```
 
 ## Comments
 
