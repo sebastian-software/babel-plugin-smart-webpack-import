@@ -24,28 +24,19 @@ Smart Webpack Import has the goal to improve the developer experience when worki
 
 ## Installation
 
+```
+npm i -D babel-plugin-smart-webpack-import
+```
+
+
+## Usage
+
 ```js
 "plugins": [
-  "babel-plugin-smart-import"
+  "babel-plugin-smart-webpack-import"
 ]
 ```
 
-
-## Comments
-
-To make this work it's important that your Babel setup keeps comments in-tact as the information
-required is carryied over to Webpack via so-called magic comments.
-
-This module exports an additional helper function called `shouldPrintComment` to make this work more easily. It keeps Webpack's Magic Comments and "Pure" markers for Uglify compression. You can pass it over to your Babel config like this:
-
-```js
-export default {
-  "presets": [...]
-  "shouldPrintComment": shouldPrintComment
-}
-```
-
-Please not that this only works in a JS environment e.g. an exported Rollup or Webpack config. A plain `.babelrc` is not capable of declaring functions or even importing code. With Babel v7 your can use a `.babelrc.js` file as well.
 
 ## Example
 
@@ -72,6 +63,26 @@ import(
 /*webpackPrefetch:true,webpackChunkName:'HelloView-zy9ks'*/
 './HelloView');
 ```
+
+
+## Comments
+
+To make this work it's important that your Babel setup keeps comments in-tact as the information
+required is carryied over to Webpack via so-called magic comments.
+
+This module exports an additional helper function called `shouldPrintComment` to make this work more easily. It keeps Webpack's Magic Comments and "Pure" markers for Uglify compression. You can pass it over to your Babel config like this:
+
+```js
+import { shouldPrintComment } from "babel-plugin-smart-webpack-imports"
+
+export default {
+  presets: [...],
+  plugins: [...],
+  shouldPrintComment
+}
+```
+
+Please not that this only works in a JS environment e.g. an exported Rollup or Webpack config. A plain `.babelrc` is not capable of declaring functions or even importing code. With Babel v7 your can use a `.babelrc.js` file as well.
 
 
 
