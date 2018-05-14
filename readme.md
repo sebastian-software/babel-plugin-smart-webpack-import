@@ -17,10 +17,39 @@ Smart Webpack Import has the goal to improve the developer experience when worki
 ## Features
 
 - Automatic chunk names for all imports.
-- Respects existing chunk names.
-- Keeps other magic comments from Webpack in-tact.
+- Respects existing chunk names and keeps them.
+- Keeps other magic comments from Webpack in-tact while adding our ones.
+- Uses hashes on requester to prevent collisions for identically named imports.
+
+
+## Installation
+
+```js
+"plugins": [
+  "babel-plugin-smart-import"
+]
+```
+
+
+## Comments
+
+To make this work it's important that your Babel setup keeps comments in-tact as the information
+required is carryied over to Webpack via so-called magic comments.
+
+This module exports an additional helper function called `shouldPrintComment` to make this work more easily. It keeps Webpack's Magic Comments and "Pure" markers for Uglify compression. You can pass it over to your Babel config like this:
+
+```js
+export default {
+  "presets": [...]
+  "shouldPrintComment": shouldPrintComment
+}
+```
+
+Please not that this only works in a JS environment e.g. an exported Rollup or Webpack config. A plain `.babelrc` is not capable of declaring functions or even importing code. With Babel v7 your can use a `.babelrc.js` file as well.
 
 ## Example
+
+### Basic
 
 ```js
 import('./HelloView')
@@ -31,6 +60,20 @@ import(
 /*webpackChunkName:'HelloView-zy9ks'*/
 './HelloView');
 ```
+
+### Keeps Prefetch
+
+```js
+import(/* webpackPrefetch: true */ './HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackPrefetch:true,webpackChunkName:'HelloView-zy9ks'*/
+'./HelloView');
+```
+
+
 
 ## License
 
