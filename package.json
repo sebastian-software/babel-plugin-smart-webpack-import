@@ -62,7 +62,6 @@
   },
   "dependencies": {
     "base-x": "^3.0.4",
-    "crypto": "^1.0.1",
     "json5": "^1.0.1"
   }
 }
