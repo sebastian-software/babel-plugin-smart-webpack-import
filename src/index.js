@@ -30,7 +30,6 @@ export default function smartWebpackImport({ types, template }) {
     visitor: {
       Import(path, state) {
         /* eslint-disable immutable/no-mutation */
-        /* eslint-disable prefer-template */
 
         if (path[visited]) {
           return
@@ -64,7 +63,7 @@ export default function smartWebpackImport({ types, template }) {
             // Webpack magic comments are declared as JSON5 but miss the curly braces.
             let parsed
             try {
-              parsed = json5.parse("{" + comment.value + "}")
+              parsed = json5.parse(`{${comment.value}}`)
             } catch (err) {
               // Most probably a non JSON5 comment
               return
@@ -90,7 +89,7 @@ export default function smartWebpackImport({ types, template }) {
           const hasExpressions = expressions && expressions.length > 0
 
           // Append [request] as placeholder for dynamic part in WebpackChunkName
-          const fullRequest = hasExpressions ? request + "[request]" : request
+          const fullRequest = hasExpressions ? `${request}[request]` : request
 
           // Prepend some clean identifier of the static part when using expressions.
           // This is not required to work, but helps users to identify different chunks.
@@ -100,10 +99,10 @@ export default function smartWebpackImport({ types, template }) {
           const plainRequest = basename(fullRequest, extname(fullRequest))
 
           // Hash request origin and request
-          const importHash = hashString(requester + "::" + request)
+          const importHash = hashString(`${requester}::${request}`)
 
           // Add our chunk name to the previously parsed values
-          jsonContent.webpackChunkName = requestPrefix + plainRequest + "-" + importHash
+          jsonContent.webpackChunkName = `${requestPrefix}${plainRequest}-${importHash}`
 
           // Convert to string and remove outer JSON object symbols {}
           const magicComment = json5.stringify(jsonContent).slice(1, -1)
