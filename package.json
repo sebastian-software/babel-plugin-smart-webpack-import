@@ -1,12 +1,52 @@
 {
-  "name": "babel-plugin-smart-webpack-import",
-  "version": "1.0.0",
+  "name": "Smart Webpack Import",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "precommit": "lint-staged",
+    "prepack": "preppy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">=1.0.0",
+    "npm": ">=6.0.0"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "files": [
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/sebastian-software/babel-preset-edge/issues"
+  },
+  "homepage": "https://github.com/sebastian-software/babel-preset-edge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastian-software/babel-preset-edge.git"
+  },
+  "keywords": [
+    "babel",
+    "plugin",
+    "webpack",
+    "import"
+  ],
+  "author": {
+    "name": "Sebastian Software",
+    "email": "s.werner@sebastian-software.de",
+    "url": "https://www.sebastian-software.de"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "eslint": "^4.19.1",
+    "eslint-config-readable": "^1.12.4",
+    "flow-bin": "^0.72.0",
+    "preppy": "^4.2.2",
+    "prettier": "^1.12.1"
+  }
 }
