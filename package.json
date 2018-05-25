@@ -6,7 +6,7 @@
   "module": "lib/index.esm.js",
   "scripts": {
     "precommit": "lint-staged",
-    "prepack": "preppy",
+    "prepack": "rimraf lib && preppy",
     "test": "jest",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
     "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
@@ -58,7 +58,8 @@
     "jest": "^23.0.0",
     "lint-staged": "^7.1.2",
     "preppy": "^4.2.2",
-    "prettier": "^1.12.1"
+    "prettier": "^1.12.1",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "base-x": "^3.0.4",
