@@ -4,7 +4,7 @@ import createBabylonOptions from "babylon-options"
 import thisPlugin from './'
 
 const babelOptions = {
-  filename: "currentFile.js",
+  filename: "current/folder/currentFile.js",
   parserOpts: createBabylonOptions({
     sourceType: 'module',
     plugins: [ "dynamicImport" ]

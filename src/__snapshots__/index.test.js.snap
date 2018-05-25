@@ -7,7 +7,7 @@ import(/* webpackPrefetch: true */ './HelloView')
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackPrefetch:true,webpackChunkName:'HelloView-zy9ks'*/
+/*webpackPrefetch:true,webpackChunkName:'HelloView-PzV81'*/
 
 /**/
 './HelloView');
@@ -21,7 +21,7 @@ import('./HelloView')
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'HelloView-zy9ks'*/
+/*webpackChunkName:'HelloView-PzV81'*/
 './HelloView');
 "
 `;
@@ -45,7 +45,7 @@ import('./views/admin/SettingsView')
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'SettingsView-ijYnC'*/
+/*webpackChunkName:'SettingsView-hOkkh'*/
 './views/admin/SettingsView');
 "
 `;
@@ -57,7 +57,7 @@ import(/* keep me */ './HelloView')
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'HelloView-zy9ks'*/
+/*webpackChunkName:'HelloView-PzV81'*/
 
 /* keep me */
 './HelloView');
