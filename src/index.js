@@ -8,7 +8,6 @@ const base62 = basex("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV
 
 const DEFAULT_LENGTH = 5
 function hashString(input, precision = DEFAULT_LENGTH) {
-  console.log("INPUT",input)
   return base62
     .encode(
       crypto
@@ -103,7 +102,6 @@ export default function smartWebpackImport({ types, template }) {
           const normalizedRequester = requester.split(sep).join("/")
 
           // Hash request origin and request
-          console.log("REQUESTER:",normalizedRequester)
           const importHash = hashString(`${normalizedRequester}::${request}`)
 
           // Add our chunk name to the previously parsed values
