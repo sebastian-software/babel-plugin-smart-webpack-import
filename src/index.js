@@ -1,6 +1,6 @@
 /* eslint-disable filenames/match-exported */
 import json5 from "json5"
-import { dirname, basename, extname } from "path"
+import { dirname, basename, extname, sep } from "path"
 import crypto from "crypto"
 import basex from "base-x"
 
@@ -99,9 +99,12 @@ export default function smartWebpackImport({ types, template }) {
           // Cleanup combined request to not contain any paths info
           const plainRequest = basename(fullRequest, extname(fullRequest))
 
+          // Normalize requester between different OSs
+          const normalizedRequester = requester.split(sep).join("/")
+
           // Hash request origin and request
-          console.log("REQUESTER:",requester)
-          const importHash = hashString(`${requester}::${request}`)
+          console.log("REQUESTER:",normalizedRequester)
+          const importHash = hashString(`${normalizedRequester}::${request}`)
 
           // Add our chunk name to the previously parsed values
           jsonContent.webpackChunkName = `${requestPrefix}${plainRequest}-${importHash}`
