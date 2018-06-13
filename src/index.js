@@ -1,10 +1,12 @@
 /* eslint-disable filenames/match-exported */
 import json5 from "json5"
-import { dirname, basename, extname, sep } from "path"
+import { dirname, basename, extname, sep, relative } from "path"
 import crypto from "crypto"
 import basex from "base-x"
+import appRoot from "app-root-dir"
 
 const base62 = basex("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+const root = appRoot.get()
 
 const DEFAULT_LENGTH = 5
 function hashString(input, precision = DEFAULT_LENGTH) {
@@ -99,7 +101,9 @@ export default function smartWebpackImport({ types, template }) {
           const plainRequest = basename(fullRequest, extname(fullRequest))
 
           // Normalize requester between different OSs
-          const normalizedRequester = requester.split(sep).join("/")
+          const normalizedRequester = relative(root, requester)
+            .split(sep)
+            .join("/")
 
           // Hash request origin and request
           const importHash = hashString(`${normalizedRequester}::${request}`)
