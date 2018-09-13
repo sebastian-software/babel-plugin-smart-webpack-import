@@ -76,6 +76,33 @@ import(
 './views/admin/SettingsView');
 ```
 
+
+### Supports query-based imports
+
+```js
+import(`./views/${name}`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'views-[request]-njvjH'*/
+`./views/${name}`);
+```
+
+
+### Shortens query-based imports
+
+```js
+import(`./app/views/${name}`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'views-[request]-xkLem'*/
+`./views/${name}`);
+```
+
+
 ## Comments
 
 To make this work it's important that your Babel setup keeps comments in-tact as the information
