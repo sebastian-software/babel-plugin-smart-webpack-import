@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import createBabylonOptions from "babylon-options"
 import pluginTester from "babel-plugin-tester"
 
