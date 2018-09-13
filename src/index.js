@@ -24,6 +24,17 @@ function getImportArgPath(path) {
   return path.parentPath.get("arguments")[0]
 }
 
+function getSimplifiedPrefix(request) {
+  let simplified = request.replace(/^[./]+|(\.js$)/g, "")
+  if (simplified.endsWith("/")) {
+    simplified = simplified.slice(0,-1).split("/").pop() + "-"
+  } else {
+    simplified = ""
+  }
+
+  return simplified
+}
+
 export default function smartWebpackImport({ types, template }) {
   const visited = Symbol("visited")
 
@@ -95,7 +106,7 @@ export default function smartWebpackImport({ types, template }) {
 
           // Prepend some clean identifier of the static part when using expressions.
           // This is not required to work, but helps users to identify different chunks.
-          const requestPrefix = hasExpressions ? request.replace(/^[./]+|(\.js$)/g, "").replace(/\//g, "-") : ""
+          const requestPrefix = hasExpressions ? getSimplifiedPrefix(request) : ""
 
           // Cleanup combined request to not contain any paths info
           const plainRequest = basename(fullRequest, extname(fullRequest))

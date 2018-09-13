@@ -14,6 +14,18 @@ import(
 "
 `;
 
+exports[`smart-webpack-import Adds chunkname when missing for subfolder import: Adds chunkname when missing for subfolder import 1`] = `
+"
+import('./sub/HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'HelloView-vr6lU'*/
+'./sub/HelloView');
+"
+`;
+
 exports[`smart-webpack-import Adds chunkname when missing: Adds chunkname when missing 1`] = `
 "
 import('./HelloView')
@@ -61,5 +73,53 @@ import(
 
 /* keep me */
 './HelloView');
+"
+`;
+
+exports[`smart-webpack-import Simplifies deep multi targets with extension: Simplifies deep multi targets with extension 1`] = `
+"
+import(\`../other/views/\${name}.css\`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'views-[request]-Rerf8'*/
+\`../other/views/\${name}.css\`);
+"
+`;
+
+exports[`smart-webpack-import Simplifies deep multi targets with prefix: Simplifies deep multi targets with prefix 1`] = `
+"
+import(\`../other/views/prefix-\${name}.css\`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'prefix-[request]-grr5e'*/
+\`../other/views/prefix-\${name}.css\`);
+"
+`;
+
+exports[`smart-webpack-import Simplifies deep multi targets: Simplifies deep multi targets 1`] = `
+"
+import(\`../other/views/\${name}\`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'views-[request]-Rerf8'*/
+\`../other/views/\${name}\`);
+"
+`;
+
+exports[`smart-webpack-import Supports multi targets: Supports multi targets 1`] = `
+"
+import(\`./views/\${name}\`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'views-[request]-njvjH'*/
+\`./views/\${name}\`);
 "
 `;
