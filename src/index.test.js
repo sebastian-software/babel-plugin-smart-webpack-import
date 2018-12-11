@@ -31,6 +31,7 @@ pluginTester({
     "Adds chunkName to existing magic comment":
       "import(/* webpackPrefetch: true */ './HelloView')",
     "Don't overwrites manual chunkName":
-      "import(/* webpackChunkName: 'CustomHello' */ './HelloView')"
+      "import(/* webpackChunkName: 'CustomHello' */ './HelloView')",
+    "Adds chunkname when missing inside loadable()": "loadable((props) => import('./HelloView'))"
   }
 })

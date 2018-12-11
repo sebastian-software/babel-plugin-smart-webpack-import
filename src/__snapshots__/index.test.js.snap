@@ -26,6 +26,18 @@ import(
 "
 `;
 
+exports[`smart-webpack-import Adds chunkname when missing inside loadable(): Adds chunkname when missing inside loadable() 1`] = `
+"
+loadable((props) => import('./HelloView'))
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+loadable(props => import(
+/*webpackChunkName:'HelloView-PzV81'*/
+'./HelloView'));
+"
+`;
+
 exports[`smart-webpack-import Adds chunkname when missing: Adds chunkname when missing 1`] = `
 "
 import('./HelloView')
