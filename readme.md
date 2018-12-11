@@ -20,6 +20,7 @@ Smart Webpack Import has the goal to improve the developer experience when worki
 - Respects existing chunk names and keeps them.
 - Keeps other magic comments from Webpack in-tact while adding our ones.
 - Uses hashes on requester to prevent collisions for identically named imports.
+- Works together with [Loadable Components](https://www.smooth-code.com/open-source/loadable-components/) and (other code-splitting SSR solutions).
 
 
 ## Installation
@@ -34,6 +35,15 @@ npm i -D babel-plugin-smart-webpack-import
 ```js
 "plugins": [
   "babel-plugin-smart-webpack-import"
+]
+```
+
+Use it together with your favorite code splitting library:
+
+```js
+"plugins": [
+  "babel-plugin-smart-webpack-import",
+  "@loadable/babel-plugin"
 ]
 ```
 
