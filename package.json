@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-smart-webpack-import",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Smart Webpack Import has the goal to improve the developer experience when working with so-called dynamic `import()` statements.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
