@@ -100,6 +100,18 @@ import(
 "
 `;
 
+exports[`smart-webpack-import Simplifies deep multi targets with pre- and postfix: Simplifies deep multi targets with pre- and postfix 1`] = `
+"
+import(\`../other/views/prefix-\${name}-postfix.css\`)
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'prefix-[request]-grr5e'*/
+\`../other/views/prefix-\${name}-postfix.css\`);
+"
+`;
+
 exports[`smart-webpack-import Simplifies deep multi targets with prefix: Simplifies deep multi targets with prefix 1`] = `
 "
 import(\`../other/views/prefix-\${name}.css\`)

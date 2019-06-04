@@ -63,11 +63,15 @@ function processImport(path, state) {
   const { quasis, expressions, leadingComments } = importArgNode
 
   const requester = dirname(state.file.opts.filename)
+
+  // Use only first part of template string as request part.
+  // In theory we could use all values in `quasis` but this often does not
+  // offer any benefit and just makes the resulting names longer.
   const request = quasis ? quasis[0].value.cooked : importArgNode.value
 
   // There exists the possibility of non usable value. Typically only
   // when the user has import() statements with other complex data, but
-  // not a string or template string. We handle this gracefully by ignoring.
+  // not a plain string or template string. We handle this gracefully by ignoring.
   if (request == null) {
     return
   }

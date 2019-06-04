@@ -25,6 +25,8 @@ pluginTester({
       "import(`../other/views/${name}.css`)",
     "Simplifies deep multi targets with prefix":
       "import(`../other/views/prefix-${name}.css`)",
+    "Simplifies deep multi targets with pre- and postfix":
+      "import(`../other/views/prefix-${name}-postfix.css`)",
     "Keeps chunkName simple even for longer paths":
       "import('./views/admin/SettingsView')",
     "Keeps existing comments": "import(/* keep me */ './HelloView')",
