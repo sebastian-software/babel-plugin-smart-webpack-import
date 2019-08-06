@@ -49,12 +49,12 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@effective/eslint-config": "^0.8.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
     "babel-plugin-tester": "^6.4.0",
     "babylon-options": "^2.0.1",
     "eslint": "^6.1.0",
-    "eslint-config-readable": "^2.3.2",
     "husky": "^3.0.2",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.1",
