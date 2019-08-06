@@ -22,13 +22,11 @@ Smart Webpack Import has the goal to improve the developer experience when worki
 - Uses hashes on requester to prevent collisions for identically named imports.
 - Works together with [Loadable Components](https://www.smooth-code.com/open-source/loadable-components/) and (other code-splitting SSR solutions).
 
-
 ## Installation
 
 ```
 npm i -D babel-plugin-smart-webpack-import
 ```
-
 
 ## Usage
 
@@ -46,7 +44,6 @@ Use it together with your favorite code splitting library:
   "@loadable/babel-plugin"
 ]
 ```
-
 
 ## Example
 
@@ -86,7 +83,6 @@ import(
 './views/admin/SettingsView');
 ```
 
-
 ### Supports query-based imports
 
 ```js
@@ -99,7 +95,6 @@ import(
 `./views/${name}`);
 ```
 
-
 ### Shortens query-based imports
 
 ```js
@@ -111,7 +106,6 @@ import(
 /*webpackChunkName:'views-[request]-xkLem'*/
 `./views/${name}`);
 ```
-
 
 ## Comments
 
@@ -131,8 +125,6 @@ export default {
 ```
 
 Please not that this only works in a JS environment e.g. an exported Rollup or Webpack config. A plain `.babelrc` is not capable of declaring functions or even importing code. With Babel v7 your can use a `.babelrc.js` file as well.
-
-
 
 ## License
 

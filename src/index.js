@@ -1,6 +1,7 @@
 /* eslint-disable filenames/match-exported */
 import crypto from "crypto"
 import { basename, dirname, extname, relative, sep } from "path"
+
 import appRoot from "app-root-dir"
 import basex from "base-x"
 import json5 from "json5"
@@ -38,11 +39,10 @@ function getImportArgPath(path) {
 function getSimplifiedPrefix(request) {
   let simplified = request.replace(/^[./]+|(\.js$)/g, "")
   if (simplified.endsWith("/")) {
-    simplified =
-      `${simplified
-        .slice(0, -1)
-        .split("/")
-        .pop()}-`
+    simplified = `${simplified
+      .slice(0, -1)
+      .split("/")
+      .pop()}-`
   } else {
     simplified = ""
   }

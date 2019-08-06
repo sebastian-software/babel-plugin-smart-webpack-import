@@ -2,7 +2,7 @@
 import createBabylonOptions from "babylon-options"
 import pluginTester from "babel-plugin-tester"
 
-import thisPlugin from "./"
+import thisPlugin from "."
 
 const babelOptions = {
   filename: "current/folder/currentFile.js",
@@ -34,6 +34,7 @@ pluginTester({
       "import(/* webpackPrefetch: true */ './HelloView')",
     "Don't overwrites manual chunkName":
       "import(/* webpackChunkName: 'CustomHello' */ './HelloView')",
-    "Adds chunkname when missing inside loadable()": "loadable((props) => import('./HelloView'))"
+    "Adds chunkname when missing inside loadable()":
+      "loadable((props) => import('./HelloView'))"
   }
 })
