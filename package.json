@@ -60,7 +60,8 @@
     "lint-staged": "^9.2.1",
     "preppy": "^8.3.1",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.3"
   },
   "dependencies": {
     "app-root-dir": "^1.0.2",
