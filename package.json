@@ -5,7 +5,10 @@
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
   "scripts": {
-    "prepack": "rimraf lib && preppy",
+    "fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,md}' && npm run fix",
+    "lint": "eslint '**/*.{ts,tsx,js,jsx}'",
+    "prepare": "rimraf lib && preppy",
     "test": "jest",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
     "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
@@ -49,7 +52,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@effective/eslint-config": "^0.8.2",
+    "@effective/eslint-config": "^0.8.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
     "babel-plugin-tester": "^6.4.0",
