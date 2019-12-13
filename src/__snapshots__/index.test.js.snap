@@ -1,149 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`smart-webpack-import Adds chunkName to existing magic comment: Adds chunkName to existing magic comment 1`] = `
-"
+
 import(/* webpackPrefetch: true */ './HelloView')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackPrefetch:true,webpackChunkName:'HelloView-PzV81'*/
+  /*webpackPrefetch:true,webpackChunkName:'HelloView-PzV81'*/
 
-/**/
-'./HelloView');
-"
+  /**/
+  "./HelloView"
+)
+
+
 `;
 
 exports[`smart-webpack-import Adds chunkname when missing for subfolder import: Adds chunkname when missing for subfolder import 1`] = `
-"
+
 import('./sub/HelloView')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'HelloView-vr6lU'*/
-'./sub/HelloView');
-"
+  /*webpackChunkName:'HelloView-vr6lU'*/
+  "./sub/HelloView"
+)
+
+
 `;
 
 exports[`smart-webpack-import Adds chunkname when missing inside loadable(): Adds chunkname when missing inside loadable() 1`] = `
-"
+
 loadable((props) => import('./HelloView'))
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-loadable(props => import(
-/*webpackChunkName:'HelloView-PzV81'*/
-'./HelloView'));
-"
+loadable((props) =>
+  import(
+    /*webpackChunkName:'HelloView-PzV81'*/
+    "./HelloView"
+  )
+)
+
+
 `;
 
 exports[`smart-webpack-import Adds chunkname when missing: Adds chunkname when missing 1`] = `
-"
+
 import('./HelloView')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'HelloView-PzV81'*/
-'./HelloView');
-"
+  /*webpackChunkName:'HelloView-PzV81'*/
+  "./HelloView"
+)
+
+
 `;
 
 exports[`smart-webpack-import Don't overwrites manual chunkName: Don't overwrites manual chunkName 1`] = `
-"
+
 import(/* webpackChunkName: 'CustomHello' */ './HelloView')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/* webpackChunkName: 'CustomHello' */
-'./HelloView');
-"
+  /* webpackChunkName: 'CustomHello' */
+  "./HelloView"
+)
+
+
 `;
 
 exports[`smart-webpack-import Keeps chunkName simple even for longer paths: Keeps chunkName simple even for longer paths 1`] = `
-"
+
 import('./views/admin/SettingsView')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'SettingsView-hOkkh'*/
-'./views/admin/SettingsView');
-"
+  /*webpackChunkName:'SettingsView-hOkkh'*/
+  "./views/admin/SettingsView"
+)
+
+
 `;
 
 exports[`smart-webpack-import Keeps existing comments: Keeps existing comments 1`] = `
-"
+
 import(/* keep me */ './HelloView')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'HelloView-PzV81'*/
+  /*webpackChunkName:'HelloView-PzV81'*/
 
-/* keep me */
-'./HelloView');
-"
+  /* keep me */
+  "./HelloView"
+)
+
+
 `;
 
 exports[`smart-webpack-import Simplifies deep multi targets with extension: Simplifies deep multi targets with extension 1`] = `
-"
+
 import(\`../other/views/\${name}.css\`)
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'views-[request]-Rerf8'*/
-\`../other/views/\${name}.css\`);
-"
+  /*webpackChunkName:'views-[request]-Rerf8'*/
+  \`../other/views/\${name}.css\`
+)
+
+
 `;
 
 exports[`smart-webpack-import Simplifies deep multi targets with pre- and postfix: Simplifies deep multi targets with pre- and postfix 1`] = `
-"
+
 import(\`../other/views/prefix-\${name}-postfix.css\`)
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'prefix-[request]-grr5e'*/
-\`../other/views/prefix-\${name}-postfix.css\`);
-"
+  /*webpackChunkName:'prefix-[request]-grr5e'*/
+  \`../other/views/prefix-\${name}-postfix.css\`
+)
+
+
 `;
 
 exports[`smart-webpack-import Simplifies deep multi targets with prefix: Simplifies deep multi targets with prefix 1`] = `
-"
+
 import(\`../other/views/prefix-\${name}.css\`)
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'prefix-[request]-grr5e'*/
-\`../other/views/prefix-\${name}.css\`);
-"
+  /*webpackChunkName:'prefix-[request]-grr5e'*/
+  \`../other/views/prefix-\${name}.css\`
+)
+
+
 `;
 
 exports[`smart-webpack-import Simplifies deep multi targets: Simplifies deep multi targets 1`] = `
-"
+
 import(\`../other/views/\${name}\`)
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'views-[request]-Rerf8'*/
-\`../other/views/\${name}\`);
-"
+  /*webpackChunkName:'views-[request]-Rerf8'*/
+  \`../other/views/\${name}\`
+)
+
+
 `;
 
 exports[`smart-webpack-import Supports multi targets: Supports multi targets 1`] = `
-"
+
 import(\`./views/\${name}\`)
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
 import(
-/*webpackChunkName:'views-[request]-njvjH'*/
-\`./views/\${name}\`);
-"
+  /*webpackChunkName:'views-[request]-njvjH'*/
+  \`./views/\${name}\`
+)
+
+
 `;
