@@ -45,6 +45,17 @@ Use it together with your favorite code splitting library:
 ]
 ```
 
+Hash suffixes can be disabled by passing `hashes: false` option:
+
+```js
+"plugins": [
+  ["babel-plugin-smart-webpack-import", { hashes: false } ]
+]
+```
+
+In this case it is developer's responsibility to ensure that there are no
+collisions between identically named imports.
+
 ## Example
 
 ### Basic
@@ -105,6 +116,18 @@ import(`./app/views/${name}`)
 import(
 /*webpackChunkName:'views-[request]-xkLem'*/
 `./views/${name}`);
+```
+
+### Same as Basic, but with `{ hashes: false }` option
+
+```js
+import('./HelloView')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import(
+/*webpackChunkName:'HelloView'*/
+'./HelloView');
 ```
 
 ## Comments

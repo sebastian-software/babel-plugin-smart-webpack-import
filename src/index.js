@@ -129,11 +129,17 @@ function processImport(path, state) {
       .split(sep)
       .join("/")
 
-    // Hash request origin and request
-    const importHash = hashString(`${normalizedRequester}::${request}`)
+    // Disable hashes if `{ hashes: false }` option is provided
+    let webpackChunkName = `${requestPrefix}${plainRequest}`
+    if (state.opts.hashes !== false) {
+      // Hash request origin and request
+      const importHash = hashString(`${normalizedRequester}::${request}`)
+      // Append hash
+      webpackChunkName = `${webpackChunkName}-${importHash}`
+    }
 
     // Add our chunk name to the previously parsed values
-    jsonContent.webpackChunkName = `${requestPrefix}${plainRequest}-${importHash}`
+    jsonContent.webpackChunkName = webpackChunkName
 
     // Convert to string and remove outer JSON object symbols {}
     const magicComment = json5.stringify(jsonContent).slice(1, -1)
