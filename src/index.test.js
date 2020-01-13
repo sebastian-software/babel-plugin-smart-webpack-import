@@ -38,3 +38,32 @@ pluginTester({
       "loadable((props) => import('./HelloView'))"
   }
 })
+
+pluginTester({
+  plugin: thisPlugin,
+  pluginOptions: { hashes: false },
+  babelOptions,
+  snapshot: true,
+  tests: {
+    "Without hashes: Adds chunkname when missing": "import('./HelloView')",
+    "Without hashes: Adds chunkname when missing for subfolder import":
+      "import('./sub/HelloView')",
+    "Without hashes: Supports multi targets": "import(`./views/${name}`)",
+    "Without hashes: Simplifies deep multi targets": "import(`../other/views/${name}`)",
+    "Without hashes: Simplifies deep multi targets with extension":
+      "import(`../other/views/${name}.css`)",
+    "Without hashes: Simplifies deep multi targets with prefix":
+      "import(`../other/views/prefix-${name}.css`)",
+    "Without hashes: Simplifies deep multi targets with pre- and postfix":
+      "import(`../other/views/prefix-${name}-postfix.css`)",
+    "Without hashes: Keeps chunkName simple even for longer paths":
+      "import('./views/admin/SettingsView')",
+    "Without hashes: Keeps existing comments": "import(/* keep me */ './HelloView')",
+    "Without hashes: Adds chunkName to existing magic comment":
+      "import(/* webpackPrefetch: true */ './HelloView')",
+    "Without hashes: Don't overwrites manual chunkName":
+      "import(/* webpackChunkName: 'CustomHello' */ './HelloView')",
+    "Without hashes: Adds chunkname when missing inside loadable()":
+      "loadable((props) => import('./HelloView'))"
+  }
+})
