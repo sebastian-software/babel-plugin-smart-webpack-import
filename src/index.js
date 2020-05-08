@@ -10,14 +10,10 @@ const base62 = basex("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV
 const root = appRoot.get()
 
 const DEFAULT_LENGTH = 5
+
 function hashString(input, precision = DEFAULT_LENGTH) {
   return base62
-    .encode(
-      crypto
-        .createHash("sha256")
-        .update(input)
-        .digest()
-    )
+    .encode(crypto.createHash("sha256").update(input).digest())
     .slice(0, precision)
 }
 
@@ -39,10 +35,7 @@ function getImportArgPath(path) {
 function getSimplifiedPrefix(request) {
   let simplified = request.replace(/^[./]+|(\.js$)/g, "")
   if (simplified.endsWith("/")) {
-    simplified = `${simplified
-      .slice(0, -1)
-      .split("/")
-      .pop()}-`
+    simplified = `${simplified.slice(0, -1).split("/").pop()}-`
   } else {
     simplified = ""
   }
@@ -88,6 +81,7 @@ function processImport(path, state) {
 
       // Webpack magic comments are declared as JSON5 but miss the curly braces.
       let parsed
+
       try {
         parsed = json5.parse(`{${comment.value}}`)
       } catch (err) {
@@ -125,9 +119,7 @@ function processImport(path, state) {
     const plainRequest = basename(fullRequest, extname(fullRequest))
 
     // Normalize requester between different OSs
-    const normalizedRequester = relative(root, requester)
-      .split(sep)
-      .join("/")
+    const normalizedRequester = relative(root, requester).split(sep).join("/")
 
     // Disable hashes if `{ hashes: false }` option is provided
     let webpackChunkName = `${requestPrefix}${plainRequest}`

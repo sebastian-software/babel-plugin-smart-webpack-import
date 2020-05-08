@@ -10,9 +10,9 @@
     "lint": "eslint '**/*.{ts,tsx,js,jsx}'",
     "prepare": "rimraf lib && preppy",
     "test": "jest",
-    "release": "git push && release-it --github.release --npm.publish --non-interactive",
-    "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
-    "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
+    "release": "git push && release-it patch",
+    "release:minor": "git push && release-it minor",
+    "release:major": "git push && release-it major"
   },
   "engines": {
     "node": ">=6.0.0",
