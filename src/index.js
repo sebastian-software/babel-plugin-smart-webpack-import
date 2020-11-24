@@ -141,7 +141,8 @@ function processImport(path, state) {
   }
 }
 
-export default function smartWebpackImport({ types, template }) {
+export default function smartWebpackImport(api, options) {
+  api.assertVersion(7);
   return {
     name: "smart-webpack-import",
     visitor: {
