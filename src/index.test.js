@@ -14,6 +14,7 @@ const babelOptions = {
 
 pluginTester({
   plugin: thisPlugin,
+  pluginName: "smart-webpack-import",
   babelOptions,
   snapshot: true,
   tests: {
@@ -41,6 +42,7 @@ pluginTester({
 
 pluginTester({
   plugin: thisPlugin,
+  pluginName: "smart-webpack-import",
   pluginOptions: { hashes: false },
   babelOptions,
   snapshot: true,
