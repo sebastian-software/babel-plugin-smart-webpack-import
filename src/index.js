@@ -84,7 +84,7 @@ function processImport(path, state) {
 
       try {
         parsed = json5.parse(`{${comment.value}}`)
-      } catch (err) {
+      } catch {
         // Most probably a non JSON5 comment
         return
       }
@@ -142,7 +142,7 @@ function processImport(path, state) {
 }
 
 export default function smartWebpackImport(api, options) {
-  api.assertVersion(7);
+  api.assertVersion(7)
   return {
     name: "smart-webpack-import",
     visitor: {
