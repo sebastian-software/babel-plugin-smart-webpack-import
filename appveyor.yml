@@ -6,6 +6,7 @@ environment:
   matrix:
     - nodejs_version: 10
     - nodejs_version: 12
+    - nodejs_version: 14
 
 platform:
   - x64
@@ -23,11 +24,6 @@ install:
 
 test_script:
   - npm test
-
-notifications:
-  - provider: Slack
-    incoming_webhook:
-      secure: 42qYgf76P/QjYb5QJ18gFFJ67iTlXc1QzEva9BFofwh5KzpF/QJ/pvRark1i3aux6uwL53zdDKTjXfy8Ozpqqk9DhnU5M1oA96bQYWOnmZU=
 
 cache:
   # global npm cache
